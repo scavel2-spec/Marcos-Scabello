@@ -1,0 +1,6 @@
+{
+  "name": "Venda de Apartamento",
+  "description": "Landing page de alta conversão para venda de apartamento de alto padrão com galeria interativa, planta humanizada, simulador e formulário de interesse.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
