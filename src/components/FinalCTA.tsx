@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Shield, Clock, Sparkles, Building2 } from 'lucide-react';
 import { INTEREST_FORM_URL, APARTMENT_INFO } from '../data/apartmentData';
+import { trackInterestClick } from '../lib/analytics';
 
 export const FinalCTA: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ export const FinalCTA: React.FC = () => {
             href={INTEREST_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackInterestClick('final_cta_section')}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-stone-950 font-bold px-10 py-4 sm:py-5 rounded-2xl text-base sm:text-lg shadow-2xl shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group"
           >
             <span>Tenho interesse</span>

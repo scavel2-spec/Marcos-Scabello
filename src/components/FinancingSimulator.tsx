@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calculator, ArrowRight, DollarSign, Percent, Calendar, ShieldCheck, Check, Info } from 'lucide-react';
 import { APARTMENT_INFO, INTEREST_FORM_URL } from '../data/apartmentData';
+import { trackInterestClick } from '../lib/analytics';
 
 export const FinancingSimulator: React.FC = () => {
   const [propertyPrice, setPropertyPrice] = useState<number>(APARTMENT_INFO.price);
@@ -190,6 +191,7 @@ export const FinancingSimulator: React.FC = () => {
                   href={INTEREST_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackInterestClick('financing_simulator')}
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold py-3.5 px-4 rounded-xl text-sm shadow-xl shadow-amber-950/40 transition-all cursor-pointer group"
                 >
                   <span>Tenho interesse nesta proposta</span>

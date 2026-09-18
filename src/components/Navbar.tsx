@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Building2, Menu, X, ArrowUpRight, Phone, ShieldCheck } from 'lucide-react';
 import { INTEREST_FORM_URL, APARTMENT_INFO } from '../data/apartmentData';
+import { trackInterestClick } from '../lib/analytics';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,6 +90,7 @@ export const Navbar: React.FC = () => {
               href={INTEREST_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackInterestClick('navbar_desktop')}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-semibold px-5 py-2.5 rounded-full text-sm shadow-md hover:shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Tenho interesse</span>
@@ -102,6 +104,7 @@ export const Navbar: React.FC = () => {
               href={INTEREST_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackInterestClick('navbar_mobile_header')}
               className="bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold px-3.5 py-1.5 rounded-full text-xs"
             >
               Tenho interesse
@@ -139,7 +142,10 @@ export const Navbar: React.FC = () => {
                 href={INTEREST_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  trackInterestClick('navbar_mobile_drawer');
+                  setMobileMenuOpen(false);
+                }}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 font-bold py-3 px-4 rounded-xl text-center shadow-lg"
               >
                 <span>Tenho interesse</span>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Layers, CheckCircle, ArrowUpRight, Maximize2, Compass, Layout } from 'lucide-react';
 import { ROOM_DETAILS, INTEREST_FORM_URL } from '../data/apartmentData';
 import { RoomDetail } from '../types';
+import { trackInterestClick } from '../lib/analytics';
 
 export const FloorPlan: React.FC = () => {
   const [selectedRoom, setSelectedRoom] = useState<RoomDetail>(ROOM_DETAILS[0]);
@@ -209,6 +210,7 @@ export const FloorPlan: React.FC = () => {
                 href={INTEREST_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackInterestClick('floorplan_section')}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold py-3.5 px-4 rounded-xl text-sm transition-all shadow-md cursor-pointer"
               >
                 <span>Tenho interesse na planta do imóvel</span>
